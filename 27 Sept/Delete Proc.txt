@@ -1,0 +1,22 @@
+USE [SBMS]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Catagory_Delete]    Script Date: 9/27/2020 12:49:11 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[Catagory_Delete]  
+@Code int  
+AS  
+BEGIN  
+DELETE  
+FROM dbo.Catagory
+WHERE Code= @Code  
+  
+END 
+GO
+
+

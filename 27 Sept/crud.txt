@@ -1,0 +1,43 @@
+USE [SBMS]
+GO
+
+/****** Object:  StoredProcedure [dbo].[ProductDetailsStorePrco]    Script Date: 9/27/2020 12:51:50 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[ProductDetailsStorePrco] (  
+
+@ProductCode nvarchar(50)=null,  
+@Qty Float= null,  
+@Date date= null,  
+@supplierName nvarchar(MAX) null,  
+@supplierNumber nvarchar(50)= null,  
+@Description nvarchar(MAX)= null,  
+@Action varchar(100)= null  
+) As begin if @Action = 'Insert' Insert into dbo.ProductDetails(ProductCode, Qty, Date,supplierName,supplierNumber,Description)  
+values  
+(@ProductCode, @Qty, @Date,@supplierName,@supplierNumber,@Description) 
+if @Action = 'Update'  
+Update  
+ProductDetails  
+set  
+ProductCode = @ProductCode,  
+Qty = @Qty, 
+Date=@Date,
+supplierName = @supplierName  ,
+supplierNumber = @supplierNumber  ,
+Description = @Description  
+where
+ProductCode = @ProductCode 
+if @Action = 'Delete'  
+Delete from  
+ProductDetails  
+where  
+ProductCode = @ProductCode 
+end 
+GO
+
+

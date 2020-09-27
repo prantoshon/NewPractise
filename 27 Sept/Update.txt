@@ -1,0 +1,22 @@
+USE [SBMS]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Catagory_Update]    Script Date: 9/27/2020 12:51:25 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[Catagory_Update]  
+@Code nvarchar(4) , 
+@Name nvarchar(MAX)  
+ AS  
+BEGIN  
+UPDATE dbo.Catagory
+SET Name= @Name  
+WHERE Code= @Code  
+END  
+GO
+
+

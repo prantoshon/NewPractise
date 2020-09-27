@@ -1,0 +1,22 @@
+USE [SBMS]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Catagory_Search]    Script Date: 9/27/2020 12:50:57 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROC [dbo].[Catagory_Search]  
+@Code nvarchar(4) 
+ AS  
+BEGIN  
+  
+SELECT Code,Name 
+FROM Catagory   
+WHERE (Code = @Code)  
+END 
+GO
+
+
